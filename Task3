@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+class account_create {
+    Scanner sc = new Scanner(System.in);
+
+    private String account;
+    private int intial_amount=100;
+
+    private int balance;
+
+
+    public String getAccount() {
+        return account;
+    }
+
+
+
+    public void setAccount(String a) {
+        this.account = a;
+    }
+
+    public void account() {
+        if (account.length() == 4 ) {
+            System.out.println("the account is verifed!!!!");
+        } else {
+            System.out.println("write your account number right");
+        }
+
+
+    }
+
+    public void deposite(int new_a) {
+
+        balance = intial_amount + new_a;
+        System.out.println("the deposited amount is : "+balance);
+    }
+
+    public void balance() {
+        System.out.println("The Current Balance is : "+balance);
+    }
+
+
+    public void withdraw(int amount) {
+        if (balance < amount || balance==100) {
+            System.out.println("insufficant balance");
+        }
+        else{
+           balance=balance-amount;
+            System.out.println("please collect the money!!!!" + amount);
+        }
+
+    }
+}
+
+    public class bank {
+        public static void main(String[] args) {
+            account_create a = new account_create();
+            Scanner sc = new Scanner(System.in);
+            while (true) {
+                int choice;
+                System.out.println("1)create account\n 2)deposite\n 3)check balance \n 4)withdraw");
+                System.out.println("enter the option");
+                choice = sc.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        System.out.println("enter the account number");
+                        String account = sc.next();
+                        a.setAccount(account);
+                        a.account();
+                        break;
+
+
+                    case 2:
+                        System.out.println("enter the amount you want to deposite ");
+                        int amount1 = sc.nextInt();
+                        a.deposite(amount1);
+                        break;
+
+                    case 3:
+                        a.balance();
+                        break;
+
+                    case 4:
+                        System.out.println("enter the amount you want to withdraw");
+                        int amo = sc.nextInt();
+                        a.withdraw(amo);
+                        break;
+
+                }
+
+            }
+        }
+    }
+
+
+
+
+

@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class StudentGradeCalc {
+    public StudentGradeCalc() {
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double[] marks = new double[5];
+        double sum = 0.0;
+        System.out.println("enter the marks");
+
+        for(int i = 0; i < marks.length; ++i) {
+            System.out.print("Enter The " + (i + 1) + " Subject Marks:");
+            marks[i] = sc.nextDouble();
+            sum += marks[i];
+        }
+
+        double avg = sum / 500.0 * 100.0;
+        System.out.println("The Total Marks : " + sum);
+        System.out.println("The Average Percentage is : " + avg + "%");
+        if (avg <= 90.0 && avg > 80.0) {
+            System.out.println("Grade A");
+        } else if (avg <= 80.0 && avg > 70.0) {
+            System.out.println("Grade B");
+        } else if (avg <= 70.0 && avg > 50.0) {
+            System.out.println("Grade C");
+        } else if (avg <= 50.0 && avg > 10.0) {
+            System.out.println("Grade D");
+        }
+
+    }
+}

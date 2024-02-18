@@ -1,0 +1,60 @@
+import java.util.*;
+
+public class guess_num_game {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int ramdom_no = 1 * (int) (Math.random() * 100);
+
+        System.out.println(ramdom_no);
+
+        int chance = 5;
+
+        int guess = 0;
+
+        int i;
+
+        String c;
+
+        do {
+            System.out.println("Guess the number in between 1 to 100 within 5 trials.");
+
+            for (i = 0; i < chance; i++) {
+
+                System.out.println("Guess The Number:");
+
+                guess = sc.nextInt();
+
+                if (ramdom_no == guess) {
+
+                    System.out.println("you guessed the correct number is correct:  " + guess);
+
+                    break;
+
+                }
+                else if (ramdom_no > guess) {
+
+                    System.out.println("The Number is Greater than " + guess);
+
+                }
+                else if (ramdom_no < guess) {
+
+                    System.out.println("The Number is Smaller than " + guess);
+
+                }
+                                       }
+            if (i == chance) {
+                System.out.println("You hav Exhausted" + " 5 Trials");
+
+                System.out.println("The Number Was " + ramdom_no);
+            }
+            System.out.println("do you want to play again for yes Y and no N   Y/N");
+
+            c = sc.next();
+
+        }while(c.equals("Y"));
+
+    }
+}
